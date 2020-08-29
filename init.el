@@ -116,7 +116,7 @@
      ("XXX+" . "#dc752f")
      ("\\?\\?\\?+" . "#dc752f")))
  '(package-selected-packages
-   '(treemacs haskell-mode web-mode doom-themes neotree el-get undersea-theme evil sr-speedbar dired-sidebar powerline spacemacs-theme ## magit tagedit rainbow-delimiters projectile smex ido-completing-read+ cider clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell))
+   '(helm treemacs haskell-mode web-mode doom-themes neotree el-get undersea-theme evil sr-speedbar dired-sidebar powerline spacemacs-theme ## magit tagedit rainbow-delimiters projectile smex ido-completing-read+ cider clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell))
  '(pdf-view-midnight-colors '("#655370" . "#fbf8ef"))
  '(safe-local-variable-values
    '((cider-shadow-cljs-default-options . "app")
