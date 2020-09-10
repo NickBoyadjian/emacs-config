@@ -6,12 +6,9 @@
 (require 'package)
 (add-to-list 'package-archives
              '("tromey" . "http://tromey.com/elpa/") t)
-
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-
 (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 (add-to-list 'package-pinned-packages '(magit . "melpa-stable") t)
 
@@ -31,7 +28,9 @@
     projectile
     rainbow-delimiters
     tagedit
-    magit))
+    magit
+    tide
+    company))
 
 ;; Install packages when needed 
 (dolist (p my-packages)
@@ -95,9 +94,9 @@
  '(ansi-color-names-vector
    ["#d2ceda" "#f2241f" "#67b11d" "#b1951d" "#3a81c3" "#a31db1" "#21b8c7" "#655370"])
  '(coffee-tab-width 2)
- '(custom-enabled-themes '(spacemacs-dark))
+ '(custom-enabled-themes '(doom-dark+ spacemacs-dark))
  '(custom-safe-themes
-   '("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default))
+   '("4bca89c1004e24981c840d3a32755bf859a6910c65b829d9441814000cf6c3d0" "3df5335c36b40e417fec0392532c1b82b79114a05d5ade62cfe3de63a59bc5c6" "76bfa9318742342233d8b0b42e824130b3a50dcc732866ff8e47366aed69de11" "990e24b406787568c592db2b853aa65ecc2dcd08146c0d22293259d400174e37" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default))
  '(fci-rule-color "#2a2a2a")
  '(hl-todo-keyword-faces
    '(("TODO" . "#dc752f")
@@ -116,7 +115,7 @@
      ("XXX+" . "#dc752f")
      ("\\?\\?\\?+" . "#dc752f")))
  '(package-selected-packages
-   '(helm treemacs haskell-mode web-mode doom-themes neotree el-get undersea-theme evil sr-speedbar dired-sidebar powerline spacemacs-theme ## magit tagedit rainbow-delimiters projectile smex ido-completing-read+ cider clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell))
+   '(company tide autopair react-snippets javascript helm treemacs haskell-mode web-mode doom-themes neotree el-get evil sr-speedbar dired-sidebar powerline spacemacs-theme ## magit tagedit rainbow-delimiters projectile smex ido-completing-read+ cider clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell))
  '(pdf-view-midnight-colors '("#655370" . "#fbf8ef"))
  '(safe-local-variable-values
    '((cider-shadow-cljs-default-options . "app")
@@ -142,8 +141,17 @@
 (require 'evil)
 (evil-mode 1)
 
+;; Set the default tab width to 2 spaces
+(setq default-tab-width 2)
+
 ;; Make neotree resizable
 (setq neo-window-fixed-size nil)
 
+;; Set up for JS and React
 (add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode)) ;; auto-enable for .js/.jsx files
 (setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
+(defun web-mode-init-hook ()
+  "Hooks for Web mode.  Adjust indent."
+  (setq web-mode-markup-indent-offset 4))
+  
+(add-hook 'web-mode-hook  'web-mode-init-hook)
