@@ -115,7 +115,7 @@
      ("XXX+" . "#dc752f")
      ("\\?\\?\\?+" . "#dc752f")))
  '(package-selected-packages
-   '(company tide autopair react-snippets javascript helm treemacs haskell-mode web-mode doom-themes neotree el-get evil sr-speedbar dired-sidebar powerline spacemacs-theme ## magit tagedit rainbow-delimiters projectile smex ido-completing-read+ cider clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell))
+   '(javap-mode company tide autopair react-snippets javascript helm treemacs haskell-mode web-mode doom-themes neotree el-get evil sr-speedbar dired-sidebar powerline spacemacs-theme ## magit tagedit rainbow-delimiters projectile smex ido-completing-read+ cider clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell))
  '(pdf-view-midnight-colors '("#655370" . "#fbf8ef"))
  '(safe-local-variable-values
    '((cider-shadow-cljs-default-options . "app")
@@ -143,6 +143,8 @@
 
 ;; Set the default tab width to 2 spaces
 (setq default-tab-width 2)
+(electric-indent-mode +1)
+
 
 ;; Make neotree resizable
 (setq neo-window-fixed-size nil)
